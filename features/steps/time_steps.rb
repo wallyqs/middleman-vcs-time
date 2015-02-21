@@ -4,7 +4,7 @@ Then /^I should see the current time$/ do
   now = Time.now.to_i
 
   window = ((now - TOLERANCE)..(now + TOLERANCE))
-  has_current_time = @browser.last_response.body.scan(/\d+/).any? do |digits|
+  has_current_time = @last_response.body.scan(/\d+/).any? do |digits|
     window.include?(digits.to_i)
   end
 

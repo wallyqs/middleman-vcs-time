@@ -8,16 +8,8 @@ module Middleman
         super store, path
       end
 
-      def binary?
-        false
-      end
-
       def render
         @renderer.call(self)
-      end
-
-      def source_file
-        ''
       end
     end
 
@@ -34,4 +26,5 @@ module Middleman
   end
 end
 
-Middleman::GeneratedResources::Extension.register :generated_resources
+::Middleman::Extensions.register :generated_resources,
+                                 Middleman::GeneratedResources::Extension

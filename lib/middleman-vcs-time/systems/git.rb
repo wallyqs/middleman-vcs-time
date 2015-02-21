@@ -44,11 +44,13 @@ module Middleman
         end
 
         def git_author_time
-          Numstats.new(source_file).find(&:changed?).try(:time)
+          Numstats.new(source_file[:full_path].to_s).find(&:changed?).try(:time)
         end
 
         def git_clean?
-          IO.popen(GIT_STATUS + [source_file]) { |output| output.read.empty? }
+          IO.popen(GIT_STATUS + [source_file[:full_path].to_s]) do |output|
+            output.read.empty?
+          end
         end
       end
 

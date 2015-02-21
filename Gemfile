@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'middleman', github: 'middleman/middleman', branch: 'v3-stable'
+  gem 'middleman', github: 'middleman/middleman', branch: 'master'
   gem 'rake'
   gem 'rdoc'
   gem 'travis'

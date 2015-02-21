@@ -5,7 +5,7 @@ module Middleman
       # Extensions to sitemap resources
       module ResourceIncludes
         def mtime
-          File.exist?(source_file) ? File.mtime(source_file) : Time.now
+          source_file ? source_file[:full_path].mtime : Time.now
         end
       end
 
